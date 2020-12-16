@@ -1,23 +1,13 @@
 import React from "react"
 
 
-class Preview extends React.Component{
-    constructor(){
-        super()
-    }
+function Preview(props){
+  
 
-    componentDidMount(){
-        fetch("https://api.imgflip.com/get_memes")
-            .then( res => res.json())
-            .then(res => this.setState ({memes: res.data.memes.map}))
-            .catch(err => console.log(err))
-    }
-
-
-    render(){
+   
         return (
-        <img ></img>)
-    }
+        <img  alt = "test"src = {props.img}></img>)
+    
 }
 
 
