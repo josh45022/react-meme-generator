@@ -18,6 +18,19 @@ class App extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this);
   }
+  componentDidMount(){
+    fetch("https://api.imgflip.com/get_memes")
+        .then( res => res.json())
+        .then(res => this.setState({memes: res.data.memes[0].url}))
+        // .then(res => this.setState ({memes: res.data.memes.map(
+        //     function(data){
+        //         return
+        //     }
+        // )}))
+        .catch(err => console.log(err))
+}
+
+  
   handleChange(event){
     const{name, value} = event.target
     this.setState({
@@ -28,7 +41,7 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-        <Preview />
+        <Preview img = {this.state.memes}/>
         <Form handleChange = {this.handleChange}/>
         <Meme />
       </div>
