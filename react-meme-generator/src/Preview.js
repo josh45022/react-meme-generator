@@ -1,3 +1,10 @@
 import React from "react"
 
-export default
+function Preview(){
+    return(
+        <h1>tester</h1>
+    )
+}
+
+
+export default Preview
