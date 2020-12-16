@@ -1,5 +1,9 @@
-import logo from './logo.svg';
+import Form from './Form';
+import Preview from './Preview';
+import Meme from './Meme';
 import './App.css';
+import './Form.css'
+import React from 'react'
 
 
 function App() {
