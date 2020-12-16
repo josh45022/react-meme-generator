@@ -10,7 +10,7 @@ function Form(props){
                         <input
                             name="topText"
                             type="text"
-                            onChange ={console.log("changed")}
+                            onChange ={props.handleChange}
                             value={props.topText}>
                         </input>
                     </label>
@@ -21,7 +21,7 @@ function Form(props){
                         <input
                             name="bottomText"
                             type="text"
-                            onChange ={console.log("changed")}
+                            onChange ={props.handleChange}
                             value={props.bottomText}>
                         </input>
                     </label>
