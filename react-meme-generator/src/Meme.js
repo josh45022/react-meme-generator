@@ -3,7 +3,7 @@ import "./Meme.css"
 
 function Meme(props){
         return (
-            <div>
+            <div className = "memewrapper-wrapper">
                 <div className="memewrapper">
                     <h1>{props.top}</h1>
                     <div className="imgwrapper">
@@ -11,7 +11,7 @@ function Meme(props){
                     </div>
                     <h1>{props.bottom}</h1>
                 </div>
-                    <button style={{marginBottom: "20px"}}>Delete Meme</button>
+                    <button onClick = {props.handleDelete} style={{marginBottom: "20px",marginLeft:"367px"}}>Delete Meme</button>
             </div>
         )
     
