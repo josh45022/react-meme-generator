@@ -3,7 +3,11 @@ import "./Meme.css"
 
 function Meme(props){
         return (
+<<<<<<< HEAD
+            <div onClick={props.handleEdit} className={`meme${props.incrementer}`}>
+=======
             <div className = "memewrapper-wrapper">
+>>>>>>> 1f696fb6624ee5f1afbc1686dcc3426443d87163
                 <div className="memewrapper">
                     <h1>{props.top}</h1>
                     <div className="imgwrapper">

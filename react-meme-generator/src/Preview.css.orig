@@ -1,0 +1,11 @@
+
+img {
+<<<<<<< HEAD
+    width: 300px;
+    height: 300px;
+=======
+    /* display: block; */
+    width: 400px;
+    height: 400px;
+>>>>>>> 1f696fb6624ee5f1afbc1686dcc3426443d87163
+}

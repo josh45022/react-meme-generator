@@ -7,7 +7,6 @@ import React from 'react'
 
 let imgIncrementer = 0
 let completedIncrementer = 0
-let imgincrementer = 0
 
 class App extends React.Component {
   constructor(){
@@ -22,7 +21,11 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this)
     this.handleRefresh = this.handleRefresh.bind(this)
+<<<<<<< HEAD
+    this.handleEdit = this.handleEdit.bind(this)
+=======
     this.handleDelete = this.handleDelete.bind(this);
+>>>>>>> 1f696fb6624ee5f1afbc1686dcc3426443d87163
   }
   //I was thinking of the this.state.memes to this.state.potentialMemes to be a little more clear
   componentDidMount(){
@@ -103,6 +106,15 @@ class App extends React.Component {
     if(this.state.canEdit === true){
       return (
         <div className="App">
+<<<<<<< HEAD
+            <Form handleClick={this.handleClick} handleChange = {this.handleChange} handleRefresh = {this.handleRefresh}/>
+            {mappedCompletedMemes}
+          </div>
+      )
+    }
+     
+      
+=======
           <Form 
             handleClick={this.handleClick} 
             handleChange = {this.handleChange} 
@@ -115,6 +127,7 @@ class App extends React.Component {
         </div>
       ) 
     ;
+>>>>>>> 1f696fb6624ee5f1afbc1686dcc3426443d87163
   }
   
 }
