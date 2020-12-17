@@ -1,12 +1,22 @@
 import React from "react"
-function Meme(props) {
-    returns(
-        <div>
-            <div></div>
-            <img src={}/>
-            <div></div>
-            <button>Delete</button>
-        </div>
-    )
+import "./Meme.css"
+
+function Meme(props){
+        return (
+            <div>
+                <div className="memewrapper">
+                    <h1>{props.top}</h1>
+                    <div className="imgwrapper">
+                        <img  alt = "test" src={props.img}></img>
+                    </div>
+                    <h1>{props.bottom}</h1>
+                </div>
+                    <button style={{marginBottom: "20px"}}>Delete Meme</button>
+            </div>
+        )
+    
 }
+
+
+
 export default Meme
