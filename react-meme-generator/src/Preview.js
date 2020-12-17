@@ -8,9 +8,7 @@ function Preview(props){
                 <div>
                     <img  alt = "test"src = {props.img}></img>
                 </div>
-                <h1>{props.bottom}</h1>
-                
-                
+                <h1>{props.bottom}</h1> 
             </div>
         )
     
