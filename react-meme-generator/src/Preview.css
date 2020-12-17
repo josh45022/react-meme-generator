@@ -1,14 +1,5 @@
-/* .imgwrapper {
-    width: 200px;
-    height: 120px;
-}
-.imgwrapper img {
-    width: 100%;
-    height: auto;
-} */
 
 img {
-    /* display: block; */
     width: 300px;
     height: 300px;
 }
