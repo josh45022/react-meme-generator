@@ -19,6 +19,7 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this)
     this.handleRefresh = this.handleRefresh.bind(this)
+    this.handleDelete = this.handleDelete.bind(this);
   }
   //I was thinking of the this.state.memes to this.state.potentialMemes to be a little more clear
   componentDidMount(){
@@ -62,6 +63,10 @@ class App extends React.Component {
           ]
         }
     })
+    
+  }
+  handleDelete(event){
+
   }
   render(){
     const mappedCompletedMemes = this.state.completedMemes.map(
@@ -74,7 +79,13 @@ class App extends React.Component {
      
       return (
         <div className="App">
-          <Form handleClick={this.handleClick} handleChange = {this.handleChange} handleRefresh = {this.handleRefresh}/>
+          <Form 
+            handleClick={this.handleClick} 
+            handleChange = {this.handleChange} 
+            handleRefresh = {this.handleRefresh} 
+            handleDelete = {this.handleDelete}
+            topText = {this.state.topText}
+            bottomText = {this.state.bottomText}/>
           <Preview img = {this.state.memes} top={this.state.topText} bottom ={this.state.bottomText}/>
           {mappedCompletedMemes}
         </div>
