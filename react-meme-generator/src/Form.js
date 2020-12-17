@@ -26,8 +26,8 @@ function Form(props){
                         </input>
                     </label>
                 </div>
-                <button>Refresh meme</button>
-                <button type="submit">Create Meme</button>
+                <button onClick={props.handleRefresh}>Refresh meme</button>
+                <button onClick={props.handleClick}type="submit">Create Meme</button>
 
             </form>
 

@@ -1,0 +1,13 @@
+.memewrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 560px;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    border: 5px solid black;
+}
+
