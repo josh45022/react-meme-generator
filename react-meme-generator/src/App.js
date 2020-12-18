@@ -22,6 +22,7 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this)
     this.handleRefresh = this.handleRefresh.bind(this)
+    this.handleEdit = this.handleEdit.bind(this)
     this.handleDelete = this.handleDelete.bind(this);
   }
   //I was thinking of the this.state.memes to this.state.potentialMemes to be a little more clear
@@ -92,7 +93,13 @@ class App extends React.Component {
     if(this.state.canEdit === false) {
         return (
           <div className="App">
-            <Form handleClick={this.handleClick} handleChange = {this.handleChange} handleRefresh = {this.handleRefresh}/>
+            <Form 
+            handleClick={this.handleClick} 
+            handleChange = {this.handleChange} 
+            handleRefresh = {this.handleRefresh}
+            handleDelete = {this.handleDelete}
+
+            />
             <Preview img = {this.state.memes} top={this.state.topText} bottom ={this.state.bottomText}/>
             {mappedCompletedMemes}
           </div>
@@ -110,13 +117,13 @@ class App extends React.Component {
             handleDelete = {this.handleDelete}
             topText = {this.state.topText}
             bottomText = {this.state.bottomText}/>
-          <Preview img = {this.state.memes} top={this.state.topText} bottom ={this.state.bottomText}/>
           {mappedCompletedMemes}
         </div>
       ) 
     ;
   }
   
+}
 }
 
 export default App;
