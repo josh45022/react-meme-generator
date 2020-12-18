@@ -27,7 +27,7 @@ function Form(props){
                     </label>
                 </div>
                 <button onClick={props.handleRefresh} type="click">Refresh meme</button>
-                <button onClick={props.handleClick} type="submit">Create Meme</button>
+                <button onClick={props.canEdit === true?props.handleEditClick:props.handleClick} type="submit">Create Meme</button>
 
             </form>
 
