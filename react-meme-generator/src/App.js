@@ -17,7 +17,7 @@ class App extends React.Component {
       memes: [],
       completedMemes: [],
       canEdit: false,
-      id: ""
+      id: 0
     }
     // this.handleChange = this.handleChange.bind(this);
     // this.handleClick = this.handleClick.bind(this)
@@ -43,31 +43,44 @@ class App extends React.Component {
       [name]: value
     })
   }
+  // handleEditChange = () => {
+
+  // }
+
   handleRefresh = (event) => {
     event.preventDefault() //would not let me go to the next image wthout refreshing if i didn't do this.smh. i think it's because the button is in a form.
     fetch("https://api.imgflip.com/get_memes")
       .then( res => res.json())
-      .then( res => this.setState({memes: res.data.memes[imgIncrementer = imgIncrementer + 1].url}))
+      .then( res => this.setState({memes: res.data.memes[imgIncrementer = imgIncrementer + 1].url, id: res.data.memes[imgIncrementer =imgIncrementer+1].id }))
       .catch(err => (console.log(err)))
     
   }
-  handleEdit = () => {
-    this.setState((prevState)=>{
-      return {
-       canEdit: !prevState.canEdit
-      }
-    }
-    )
-  }
-  handleEditClick = (event, id) => {
-    event.preventDefault()
+  handleEdit = (id) => {
+    
     const filteredEditMeme = this.state.completedMemes.filter(
       meme => (meme.id === id))
-    this.setState({meme: filteredEditMeme,
-      topText: filteredEditMeme.topText,
-      bottomText: filteredEditMeme.bottomText
-    })
+      console.log(filteredEditMeme[0])      
+      
+      
+    this.setState(
+          (prevState) => {
+          return {
+          canEdit: !prevState.canEdit,
+          topText: filteredEditMeme[0].topText,
+          bottomText: filteredEditMeme[0].bottomText
+          }
+      }
+    )
   }
+  // handleEditClick = (event, id) => {
+  //   event.preventDefault()
+  //   const filteredEditMeme = this.state.completedMemes.filter(
+  //     meme => (meme.id === id))
+  //   this.setState({meme: filteredEditMeme,
+  //     topText: filteredEditMeme[0].topText,
+  //     bottomText: filteredEditMeme[0].bottomText
+  //   })
+  // }
   
   handleClick = (event) =>{
     event.preventDefault()
@@ -82,9 +95,9 @@ class App extends React.Component {
                 topText: prevState.topText,
                 bottomText: prevState.bottomText,
                 memes: prevState.memes,
-
+                id: prevState.id
               }
-          ]
+          ],
         }
     })
     
@@ -97,19 +110,19 @@ class App extends React.Component {
   }
 
 
-  
+
   render(){
     const mappedCompletedMemes = this.state.completedMemes.map(
       (meme, index) => {
         return (
           <div className = {`meme${index}`}>
-            <Meme edit={this.handleEdit} index = {completedIncrementer = index} top={meme.topText} bottom={meme.bottomText} img={meme.memes}/>
+            <Meme id={meme.id} edit={this.handleEdit} index = {completedIncrementer = index} top={meme.topText} bottom={meme.bottomText} img={meme.memes}/>
           </div>
           
         )
       }
     )
-    
+  
     
     if(this.state.canEdit === false) {
         return (
@@ -149,7 +162,9 @@ class App extends React.Component {
               <Meme 
               top={this.state.topText}
               bottom={this.state.bottomText}
-              img = {this.state.memes}/>
+              img = {this.state.memes}
+              edit={this.handleEdit}
+              />
           </div>
         </div>
       ) 
