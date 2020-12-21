@@ -5,7 +5,7 @@ import MemeEditor from './MemeEditor.js'
 import './App.css';
 import './Form.css'
 import React from 'react'
-
+let filteredEditMeme = []
 let imgIncrementer = 0
 let completedIncrementer = 0
 class App extends React.Component {
@@ -56,20 +56,26 @@ class App extends React.Component {
     
   }
   handleEdit = (id) => {
-    
     const filteredEditMeme = this.state.completedMemes.filter(
       meme => (meme.id === id))
       console.log(filteredEditMeme[0])      
-      
+    
       
     this.setState(
-          (prevState) => {
-          return {
-          canEdit: !prevState.canEdit,
+          /*(prevState)=> {*/
+          /*return*/ {
+          /*canEdit: !prevState.canEdit,*/
+          canEdit: true,
+          memes: filteredEditMeme[0].memes,
           topText: filteredEditMeme[0].topText,
-          bottomText: filteredEditMeme[0].bottomText
-          }
-      }
+          bottomText: filteredEditMeme[0].bottomText/*,
+          completedMemes: [
+            ...prevState.completedMemes,
+            filteredEditMeme[0]
+          ]*/
+
+        }
+      
     )
   }
   // handleEditClick = (event, id) => {
@@ -87,6 +93,7 @@ class App extends React.Component {
     this.setState(
       function(prevState) {
         return {
+          canEdit: false,
           topText: "",
           bottomText: "",
           completedMemes: [
@@ -102,11 +109,13 @@ class App extends React.Component {
     })
     
   }
-  handleDelete = (event) => {
-    // event.preventDefault()
-    // this.setState({
-    //   completedMeme[completedIncrementer].img: null
-    // })
+  handleDelete = (id) => {
+    const postDeletionMemes = this.state.completedMemes.filter(
+      meme => (meme.id !== id))
+      console.log(filteredEditMeme[0])
+    this.setState({
+      completedMemes: postDeletionMemes
+    })
   }
 
 
@@ -116,7 +125,7 @@ class App extends React.Component {
       (meme, index) => {
         return (
           <div className = {`meme${index}`}>
-            <Meme id={meme.id} edit={this.handleEdit} index = {completedIncrementer = index} top={meme.topText} bottom={meme.bottomText} img={meme.memes}/>
+            <Meme id={meme.id} canEdit={this.state.canEdit} edit={this.handleEdit} handleDelete={this.handleDelete} index = {completedIncrementer = index} top={meme.topText} bottom={meme.bottomText} img={meme.memes}/>
           </div>
           
         )
@@ -158,14 +167,18 @@ class App extends React.Component {
             bottomText = {this.state.bottomText}
             canEdit = {this.state.canEdit}
             />
-          <div onClick = {this.handleEdit}>
-              <Meme 
+          {/* <div onClick = {this.handleEdit}> */}
+               <Meme 
               top={this.state.topText}
               bottom={this.state.bottomText}
               img = {this.state.memes}
               edit={this.handleEdit}
-              />
-          </div>
+              canEdit = {this.state.canEdit}
+              handleDelete={this.handleDelete}
+              /> 
+              
+              
+          {/*</div>*/}
         </div>
       ) 
     ;

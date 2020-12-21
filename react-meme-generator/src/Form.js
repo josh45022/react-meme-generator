@@ -10,7 +10,7 @@ function Form(props){
                         <input
                             name="topText"
                             type="text"
-                            onChange ={props.canEdit?props.handleEdit:props.handleChange}
+                            onChange ={/*props.canEdit?props.handleEdit:*/props.handleChange}
                             value={props.topText}>
                         </input>
                     </label>
@@ -21,13 +21,13 @@ function Form(props){
                         <input
                             name="bottomText"
                             type="text"
-                            onChange ={props.canEdit?props.handleEdit:props.handleChange}
+                            onChange ={/*props.canEdit?props.handleEdit:*/props.handleChange}
                             value={props.bottomText}>
                         </input>
                     </label>
                 </div>
                 <button onClick={props.handleRefresh} type="click">Refresh meme</button>
-                <button onClick={props.canEdit === true? props.handleEdit:props.handleClick} type="submit">Create Meme</button>
+                <button onClick={/*props.canEdit === true? props.handleEdit:*/props.handleClick} type="submit">Create Meme</button>
 
             </form>
 
