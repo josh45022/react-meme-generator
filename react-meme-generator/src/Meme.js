@@ -4,7 +4,7 @@ import "./Meme.css"
 function Meme(props){
         return (
             <div>
-            <div onClick={props.canEdit === false?()=>props.edit(props.id):null} className = "memewrapper-wrapper">
+            <div onClick={props.canEdit === false?()=>props.handleEdit(props.id):props.handleSave} className = "memewrapper-wrapper">
                 <div className="memewrapper">
                     <h1>{props.top}</h1>
                     <div className="imgwrapper">
